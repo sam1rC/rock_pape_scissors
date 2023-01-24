@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors!</title>
+</head>
+<script>
+    function getComputerChoice()
+    {
+        let choice = Math.round(Math.random() * 2);
+        if(choice==0){
+            choice = "rock";
+        }
+        else if (choice==1){
+            choice = "paper";
+        }
+        else{
+            choice = "scissors";
+        }
+        return choice;
+    }
+
+    //Conditions: Paper > Rock, Rock > Scissors, Scissors > Paper
+    function playRound(userChoice,computerChoice)
+    {
+        let computer_points = 0;
+        let user_points = 0;
+
+        if(userChoice==computerChoice)
+        {
+            alert("It seems like we have a draw!");
+        }
+
+        if(userChoice=="paper")
+        {
+            if(computerChoice=="rock")
+            {
+                user_points+=1;
+                alert("You Won! Paper beats Rock");
+            }
+            else if(computerChoice=="scissors")
+            {
+                computer_points+=1;
+                alert("You Lose! Scissors beats Paper");
+            }
+        }
+        else if(userChoice=="rock")
+        {
+            if(computerChoice=="paper")
+            {
+                computer_points+=1;
+                alert("You Lose! Paper beats Rock");
+            }
+            else if(computerChoice=="scissors")
+            {
+                user_points+=1;
+                alert("You Won! Rock beats Scissors");
+            }
+        }
+        else if(userChoice=="scissors")
+        {
+            if(computerChoice=="paper")
+            {
+                user_points+=1;
+                alert("You Won! Scissors beats Paper");
+            }
+            else if(computerChoice=="rock")
+            {
+                computer_points+=1;
+                alert("You Lose! Rock beats Scissors");
+            }
+        }
+        else
+        {
+            alert("That's not an option...");
+        }
+
+    }
+    let userChoice = prompt("Write your option!");
+    userChoice = userChoice.toLowerCase();
+    let computerChoice = getComputerChoice();
+    playRound(userChoice,computerChoice);
+
+    
+</script>
+<body>
+    
+</body>
+</html>
