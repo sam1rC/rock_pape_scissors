@@ -78,11 +78,14 @@
         }
 
     }
-    let userChoice = prompt("Write your option!");
-    userChoice = userChoice.toLowerCase();
-    let computerChoice = getComputerChoice();
-    playRound(userChoice,computerChoice);
-
+    
+    function game()
+    {
+        let userChoice = prompt("Write your option!");
+        userChoice = userChoice.toLowerCase();
+        let computerChoice = getComputerChoice();
+        playRound(userChoice,computerChoice);
+    }
     
 </script>
 <body>
