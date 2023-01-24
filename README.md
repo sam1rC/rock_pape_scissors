@@ -1,2 +1,2 @@
-# rock_pape_scissors
+# rock_paper_scissors
 Rock, Paper, Scissors game in JavaScript
