@@ -93,4 +93,4 @@ function game()
     
 }
 
-document.addEventListener('DOMContentLoaded',game)
+game();
