@@ -1,96 +1,71 @@
+const computerChoices = ['rock','paper','scissors'];
+const resultText = document.getElementById('resultText');
+const score = document.getElementById('score');
+const choices = document.querySelectorAll('.box');
+choices.forEach(choice => choice.addEventListener('click',()=>{
+    playRound(choice.id,getComputerChoice());
+}));
+let userPoints = 0;
+let computerPoints = 0;
+
+
 function getComputerChoice()
 {
-    let choice = Math.round(Math.random() * 2);
-    if(choice==0){
-        choice = "rock";
-    }
-    else if (choice==1){
-        choice = "paper";
-    }
-    else{
-        choice = "scissors";
-    }
-    return choice;
+    const randomChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+    return randomChoice;
 }
 
-    //Conditions: Paper > Rock, Rock > Scissors, Scissors > Paper
-    //Conditions: 1 -> User won, 2-> Computer won, 3->Draw, 4->Error
 function playRound(userChoice,computerChoice)
-{   
-    let userWon = 1
-    let computerWon = 2;
-    let draw = 3;
-    let error = 4;
+{
     if(userChoice==computerChoice)
     {
-        alert("It seems like we have a draw!");
+        resultText.textContent = "It seems like we have a draw!";
+        score.textContent = `You: ${userPoints}     Computer: ${computerPoints}`;
     }
     if(userChoice=="paper")
     {
         if(computerChoice=="rock")
         {
-            alert("You Won! Paper beats Rock");
-            return userWon;
+            resultText.textContent = "You Won! Paper beats Rock";
+            userPoints+=1;
+            score.textContent = `You: ${userPoints}     Computer: ${computerPoints}`;
         }
         else if(computerChoice=="scissors")
         {
-            alert("You Lose! Scissors beats Paper");
-            return computerWon;
+            resultText.textContent = "You Lose! Scissors beats Paper";
+            computerPoints+=1;
+            score.textContent = `You: ${userPoints}     Computer: ${computerPoints}`;
         }
     }
     else if(userChoice=="rock")
     {
         if(computerChoice=="paper")
         {
-            alert("You Lose! Paper beats Rock");
-            return computerWon;
+            resultText.textContent = "You Lose! Paper beats Rock";
+            computerPoints+=1;
+            score.textContent = `You: ${userPoints}     Computer: ${computerPoints}`;
         }
         else if(computerChoice=="scissors")
         {
-            alert("You Won! Rock beats Scissors");
-            return userWon;
+            resultText.textContent = "You Won! Rock beats Scissors";
+            userPoints+=1;
+            score.textContent = `You: ${userPoints}     Computer: ${computerPoints}`;
         }
     }
     else if(userChoice=="scissors")
     {
         if(computerChoice=="paper")
         {
-            alert("You Won! Scissors beats Paper");
-            return userWon;
+            resultText.textContent = "You Won! Scissors beats Paper";
+            userPoints+=1;
+            score.textContent = `You: ${userPoints}     Computer: ${computerPoints}`;
         }
         else if(computerChoice=="rock")
         {
-            alert("You Lose! Rock beats Scissors");
-            return computerWon;
+            resultText.textContent = "You Lose! Rock beats Scissors";
+            computerPoints+=1;
+            score.textContent = `You: ${userPoints}     Computer: ${computerPoints}`;
         }
-    }
-    else
-    {
-        alert("That's not a valid answer")            
     }
 }
 
-function game()
-{
-    let user_points = 0;
-    let computer_points = 0;
-    while(user_points!=3 && computer_points!=3)
-    {
-        let userChoice = prompt("Write your option!");
-        userChoice = userChoice.toLowerCase();
-        let computerChoice = getComputerChoice();
-        let round = playRound(userChoice,computerChoice);
-        if(round==1)
-        {
-            user_points+=1;
-        }
-        else if(round==2)
-        {
-            computer_points+=1;
-        }
-        alert(`You have ${user_points} points and the computer has ${computer_points} points`);           
-    }
-    
-}
-
-game();

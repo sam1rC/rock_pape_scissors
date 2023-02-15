@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+img{
+    width: 500px;
+    height: auto;
+}
+
+.container{
+    display:flex;
+    gap: 1rem;
+}
+
+.box{
+    border: 0.25rem solid black;
+    border-radius: 100%;
+}
+
+.box:hover{
+    background-color: lightcyan;
+}
+
+#resultText{
+    font-size: 2rem;
+}
+
+#score{
+    font-size: 1.5rem;
+
+}
